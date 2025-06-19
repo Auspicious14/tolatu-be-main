@@ -1,4 +1,4 @@
-TTS
+TTS==0.22.0
 fastapi==0.115.11
 uuid==1.30
 uvicorn==0.34.3
