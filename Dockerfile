@@ -8,13 +8,13 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Copy the rest of the application code
 COPY . .
 
 # Expose port (Render assigns dynamically, but good practice)
-EXPOSE 8000
+EXPOSE 8020
 
 # Run FastAPI with uvicorn
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8020"]
