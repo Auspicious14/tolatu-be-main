@@ -6,7 +6,7 @@ from TTS.api import TTS
 
 class TTSService:
     def __init__(self):
-        self.model_name = "tts_models/en/ljspeech/tacotron2-DDC"
+        self.model_name = "tts_models/en/vctk/vits"
         self.language = "en"
 
         self.tts = TTS(self.model_name)
@@ -26,7 +26,7 @@ class TTSService:
         file_name = f"{uuid.uuid4()}.wav"
         file_path = os.path.join(self.output_dir, file_name)
         
-        self.tts.tts_to_file(text=text, file_path=file_path)
+        self.tts.tts_to_file(text=text, file_path=file_path, speaker="p225")
         
         return file_path
     

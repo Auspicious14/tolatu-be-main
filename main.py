@@ -9,7 +9,7 @@ app = FastAPI()
 
 # Download a multi-speaker TTS model first
 # e.g.: TTS --list_models
-model_name = "tts_models/en/ljspeech/tacotron2-DDC"
+model_name = "tts_models/en/vctk/vits"
 
 # Loading the TTS
 tts = TTS(model_name)
@@ -20,6 +20,6 @@ def synthesize(text: str = Form(...)):
     file_name = f"{uuid.uuid4()}.wav"
     file_path = os.path.join("/tmp", file_name)
 
-    tts.tts_to_file(text=text, file_path=file_path)
+    tts.tts_to_file(text=text, file_path=file_path, speaker="p225")
 
     return FileResponse(file_path, media_type='audio/wav', filename=file_name)
